@@ -1,0 +1,15 @@
+type Mutation {
+    newAuthor(author: AuthorInput): Author,
+    newBlog(blogInput: BlogInput): Blog
+}
+
+input AuthorInput {
+    firstName: String,
+    username: String
+}
+
+input BlogInput {
+    authorId: ID,
+    title: String,
+    content: String
+}

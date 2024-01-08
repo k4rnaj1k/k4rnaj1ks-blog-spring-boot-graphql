@@ -1,0 +1,18 @@
+type Query {
+    blogById(id: ID): Blog,
+    allAuthors: [Author],
+    allBlogs: [Blog]
+}
+
+type Blog {
+    id: ID,
+    title: String,
+    content: String,
+    author: Author
+}
+
+type Author {
+    id: ID,
+    firstName: String,
+    username: String
+}

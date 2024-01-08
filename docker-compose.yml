@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: TEST_PASS
+      POSTGRES_USER: TEST_USER
+      POSTGRES_DB: test
+    ports:
+      - 5432:5432
