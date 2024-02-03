@@ -48,6 +48,19 @@ public class BlogController {
         return blogRepository.save(blogToSave);
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @MutationMapping
+    public Blog editBlog(@Argument BlogInput blogInput, @Argument Integer id){
+        Blog existBlog = blogRepository.findById(id).orElseThrow();
+        Author newBlogAuthor = authorRepository.findById(blogInput.authorId()).orElseThrow();
+
+        existBlog.setAuthor(newBlogAuthor);
+        existBlog.setContent(blogInput.content());
+        existBlog.setTitle(blogInput.title());
+
+        return blogRepository.save(existBlog);
+    }
+
     @QueryMapping
     public List<Blog> allBlogs() {
         return blogRepository.findAll();

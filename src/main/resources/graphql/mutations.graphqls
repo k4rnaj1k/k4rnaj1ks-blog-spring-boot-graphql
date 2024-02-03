@@ -1,6 +1,7 @@
 type Mutation {
     newAuthor(author: AuthorInput): Author,
-    newBlog(blogInput: BlogInput): Blog
+    newBlog(blogInput: BlogInput): Blog,
+    editBlog(blogInput: BlogInput, id: ID): Blog
 }
 
 input AuthorInput {
