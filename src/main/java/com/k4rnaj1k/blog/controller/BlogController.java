@@ -5,6 +5,7 @@ import com.k4rnaj1k.blog.model.Author;
 import com.k4rnaj1k.blog.model.Blog;
 import com.k4rnaj1k.blog.repository.AuthorRepository;
 import com.k4rnaj1k.blog.repository.BlogRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -63,6 +64,6 @@ public class BlogController {
 
     @QueryMapping
     public List<Blog> allBlogs() {
-        return blogRepository.findAll();
+        return blogRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 }
